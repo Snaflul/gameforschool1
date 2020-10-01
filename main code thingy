@@ -1,0 +1,100 @@
+// before you read this, some of the things are in Dutch, this is because it is for my Dutch school + language = processing
+
+//amount of stars (of background)
+Star[] stars = new Star[400];
+
+
+//global variables
+int base1 = 300;
+int line1 = 310;
+int point1 = 300;
+int point2 = 350;
+int point3 = 325;
+int window1 = 325;
+int back1 = 300;
+int leg11 = 270;
+int leg12 = 300;
+int leg13 = 300;
+int leg21 = 380;
+int leg22 = 350;
+int leg23 = 350;
+
+void setup() {
+  size(800, 800);
+  for (int i = 0; i < stars.length; i++) {
+    stars[i] = new Star();
+  }
+}
+
+void draw() {
+  background(0, 0, 40);
+  for (int i = 0; i < stars.length; i++) {
+    stars[i].update();
+    stars[i].show();
+  }
+  display();
+}
+
+
+void display() {
+  if (mousePressed==true && mouseButton==RIGHT) {
+    base1-=3;
+    line1-=3;
+    point1-=3;
+    point2-=3;
+    point3-=3;
+    window1-=3;
+    back1-=3;
+    leg11-=3;
+    leg12-=3;
+    leg13-=3;
+    leg21-=3;
+    leg22-=3;
+    leg23-=3;
+  }
+
+
+  if (mousePressed == true && mouseButton==LEFT) {
+    base1+=3;
+    line1+=3;
+    point1+=3;
+    point2+=3;
+    point3+=3;
+    window1+=3;
+    back1+=3;
+    leg11+=3;
+    leg12+=3;
+    leg13+=3;
+    leg21+=3;
+    leg22+=3;
+    leg23+=3;
+  }
+
+
+  noStroke();
+
+  //base raket
+  fill(0, 150, 0);
+  rect(300, base1, 200, 50);
+
+  //midden streep raket
+  fill(102);
+  rect(300, line1, 200, 30);
+
+  //punt raket
+  fill(255, 255, 255);
+  triangle(500, point1, 500, point2, 560, point3);
+
+  //raampje raket
+  fill(0, 120, 255);
+  ellipse(525, window1, 20, 20);
+
+  //achterkant raket
+  fill(150);
+  rect(285, back1, 15, 50);
+
+  //poten raket
+  fill(150);
+  triangle(240, leg11, 285, leg12, 315, leg13);
+  triangle(240, leg21, 285, leg22, 315, leg23);
+}
