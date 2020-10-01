@@ -1,4 +1,4 @@
-// before you read this, some of the things are in Dutch, this is because it is for my Dutch school + language = processing
+//PROJECT IS STILL UNFINISHED. JUST STORING THIS HERE FOR WHEN I WANNA WORK ON IT AGAIN.
 
 //amount of stars (of background)
 Star[] stars = new Star[400];
@@ -18,83 +18,140 @@ int leg13 = 300;
 int leg21 = 380;
 int leg22 = 350;
 int leg23 = 350;
+int asteroid1 = 800;
+int asteroid2 = 800;
+int asteroid3 = 800;
+int asteroid4 = 800;
+int asteroid5 = 800;
+int textlol = 330;
+boolean gameover = false;
+
+// CHANGE VARIABLE TO CHANGE THE SPEED THE ROCKET TRAVELS IN
+int speed = 20;
+
 
 void setup() {
-  size(800, 800);
+  size(1500, 1000);
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
 }
 
+
 void draw() {
   background(0, 0, 40);
+
   for (int i = 0; i < stars.length; i++) {
     stars[i].update();
     stars[i].show();
   }
   display();
+
+  textSize(16);
+  text("SS JOE MAMA", 170, textlol);
 }
 
-
+if(!gameover){
 void display() {
-  if (mousePressed==true && mouseButton==RIGHT) {
-    base1-=3;
-    line1-=3;
-    point1-=3;
-    point2-=3;
-    point3-=3;
-    window1-=3;
-    back1-=3;
-    leg11-=3;
-    leg12-=3;
-    leg13-=3;
-    leg21-=3;
-    leg22-=3;
-    leg23-=3;
+  if (mousePressed==true && mouseButton==RIGHT 
+    && base1 > 25 
+    && line1 > 25 
+    && point1 > 25
+    && point2 > 25 
+    && point3 > 25 
+    && window1 > 25
+    && back1 > 25 
+    && leg11 > 25 
+    && leg12 > 25 
+    && leg13 > 25 
+    && leg21 > 25
+    && leg22 > 25 
+    && leg23 > 25 
+    && textlol > 25) {
+    base1-=speed;
+    line1-=speed;
+    point1-=speed;
+    point2-=speed;
+    point3-=speed;
+    window1-=speed;
+    back1-=speed;
+    leg11-=speed;
+    leg12-=speed;
+    leg13-=speed;
+    leg21-=speed;
+    leg22-=speed;
+    leg23-=speed;
+    textlol-=speed;
   }
 
 
-  if (mousePressed == true && mouseButton==LEFT) {
-    base1+=3;
-    line1+=3;
-    point1+=3;
-    point2+=3;
-    point3+=3;
-    window1+=3;
-    back1+=3;
-    leg11+=3;
-    leg12+=3;
-    leg13+=3;
-    leg21+=3;
-    leg22+=3;
-    leg23+=3;
+  if (mousePressed == true && mouseButton==LEFT && base1 < height
+    && line1 < height 
+    && point1 < height 
+    && point2 < height
+    && point3 < height 
+    && window1 < height 
+    && back1 < height 
+    && leg11 < height 
+    && leg12 < height
+    && leg13 < height 
+    && leg21 < height 
+    && leg22 < height 
+    && leg23 < height
+    && textlol < height) {
+    base1+=speed;
+    line1+=speed;
+    point1+=speed;
+    point2+=speed;
+    point3+=speed;
+    window1+=speed;
+    back1+=speed;
+    leg11+=speed;
+    leg12+=speed;
+    leg13+=speed;
+    leg21+=speed;
+    leg22+=speed;
+    leg23+=speed;
+    textlol+=speed;
   }
 
 
   noStroke();
 
+
   //base raket
-  fill(0, 150, 0);
-  rect(300, base1, 200, 50);
+  fill(220, 220, 220);
+  rect(100, base1, 200, 50);
 
   //midden streep raket
   fill(102);
-  rect(300, line1, 200, 30);
+  rect(100, line1, 200, 30);
 
   //punt raket
   fill(255, 255, 255);
-  triangle(500, point1, 500, point2, 560, point3);
+  triangle(300, point1, 300, point2, 360, point3);
 
   //raampje raket
   fill(0, 120, 255);
-  ellipse(525, window1, 20, 20);
+  ellipse(325, window1, 20, 20);
 
   //achterkant raket
   fill(150);
-  rect(285, back1, 15, 50);
+  rect(85, back1, 15, 50);
 
   //poten raket
-  fill(150);
-  triangle(240, leg11, 285, leg12, 315, leg13);
-  triangle(240, leg21, 285, leg22, 315, leg23);
+  fill(255, 0, 0);
+  triangle(40, leg11, 85, leg12, 115, leg13);
+  triangle(40, leg21, 85, leg22, 115, leg23);
+    }
+
+  }else {
+    fill(0);
+    textsize(30);
+    text("GAME OVER. PRESS SPACE TO RESTART", width/2, height);
+    if(keyPressed&&key ==' ') {
+    x.clear();
+    y.clear();
+    x.add(5);
+    gameover = false;
 }
