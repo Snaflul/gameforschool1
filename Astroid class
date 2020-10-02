@@ -1,8 +1,0 @@
-// VERY FAR FROM DONE, BUT STILL JUST STORING THIS HERE.
-
-class Astroid {
-  float x;
-  float y;
-  float z;
-  
-  
