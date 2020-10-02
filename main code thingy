@@ -227,9 +227,7 @@ void display() {
 
 
 
-  //asteroids
-
-  fill(60);
+  //asteroids  fill(60);
   textSize(60);
   ellipse(asteroid, asteroidy, 70, 70);
   ellipse(asteroid1, asteroidy2, 50, 50);
@@ -243,7 +241,7 @@ void display() {
   
 
 
-  
+  // UNFINISHED BUT MORE
 if(dist(asteroid,asteroidy,560,point3)<50){text("JE BENT GERAAKT",500,400);
 }
 if(dist(asteroid1,asteroidy2,560,point3)<50){text("JE BENT GERAAKT",500,400);
@@ -263,8 +261,9 @@ if(dist(asteroid7,asteroidy8,560,point3)<50){text("JE BENT GERAAKT",500,400);
 if(dist(asteroid8,asteroidy9,560,point3)<50){text("JE BENT GERAAKT",500,400);
 }
 }
-// for making the asteroids randomly spawn
 
+
+// for making the asteroids randomly spawn
 void randomAsteroids() {
   asteroidy = random(0, 800);
   asteroidy2 = random(0, 800);
