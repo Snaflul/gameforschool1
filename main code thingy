@@ -227,7 +227,8 @@ void display() {
 
 
 
-  //asteroids  fill(60);
+  //asteroids 
+  fill(60);
   textSize(60);
   ellipse(asteroid, asteroidy, 70, 70);
   ellipse(asteroid1, asteroidy2, 50, 50);
