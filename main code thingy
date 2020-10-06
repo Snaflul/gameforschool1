@@ -229,11 +229,37 @@ void display() {
 
 
 
-    if (dist(hitbox,200,asteroid,asteroidy) <0){
+    if (dist(200,hitbox,asteroid,asteroidy) <50){
       gameover = true;
     }
+    
+    if (dist(200,hitbox,asteroid2,asteroidy2) <50){
+      gameover = true;
+    }
+    
+    if (dist(200,hitbox,asteroid3,asteroidy3) <50){
+      gameover = true;
+    } 
 
-
+    if (dist(200,hitbox,asteroid4,asteroidy4) <50){
+      gameover = true;
+    }
+    
+    if (dist(200,hitbox,asteroid5,asteroidy5) <50){
+      gameover = true;
+    }
+    
+    if (dist(200,hitbox,asteroid6,asteroidy6) <50){
+      gameover = true;
+    }
+    
+    if (dist(200,hitbox,asteroid7,asteroidy7) <50){
+      gameover = true;
+    }
+    
+    if (dist(200,hitbox,asteroid8,asteroidy8) <50){
+      gameover = true;
+    }
 
     //asteroids
     fill(60);
@@ -255,6 +281,15 @@ void display() {
     text("GAME OVER. Press space", width/2, height/2);
     if (keyPressed&&key == ' ') {
       gameover = false;
+      asteroid = 2000;
+      asteroid1 = 2000;
+      asteroid2 = 2000;
+      asteroid3 = 2000;
+      asteroid4 = 2000;
+      asteroid5 = 2000;
+      asteroid6 = 2000;
+      asteroid7 = 2000;
+      asteroid8 = 2000;
     }
   }
 }
