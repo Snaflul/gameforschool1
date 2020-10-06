@@ -184,7 +184,7 @@ void display() {
 
 
     //hitbox
-    fill(0, 0, 255);
+    fill(0, 0, 40);
     ellipse(200, hitbox, 500, 100);
 
     //base rocket
@@ -229,35 +229,35 @@ void display() {
 
 
 
-    if (dist(200,hitbox,asteroid,asteroidy) <50){
+    if (dist(200,hitbox,asteroid,asteroidy) <100){
       gameover = true;
     }
     
-    if (dist(200,hitbox,asteroid2,asteroidy2) <50){
+    if (dist(200,hitbox,asteroid2,asteroidy2) <100){
       gameover = true;
     }
     
-    if (dist(200,hitbox,asteroid3,asteroidy3) <50){
+    if (dist(200,hitbox,asteroid3,asteroidy3) <100){
       gameover = true;
     } 
 
-    if (dist(200,hitbox,asteroid4,asteroidy4) <50){
+    if (dist(200,hitbox,asteroid4,asteroidy4) <100){
       gameover = true;
     }
     
-    if (dist(200,hitbox,asteroid5,asteroidy5) <50){
+    if (dist(200,hitbox,asteroid5,asteroidy5) <100){
       gameover = true;
     }
     
-    if (dist(200,hitbox,asteroid6,asteroidy6) <50){
+    if (dist(200,hitbox,asteroid6,asteroidy6) <100){
       gameover = true;
     }
     
-    if (dist(200,hitbox,asteroid7,asteroidy7) <50){
+    if (dist(200,hitbox,asteroid7,asteroidy7) <100){
       gameover = true;
     }
     
-    if (dist(200,hitbox,asteroid8,asteroidy8) <50){
+    if (dist(200,hitbox,asteroid8,asteroidy8) <100){
       gameover = true;
     }
 
