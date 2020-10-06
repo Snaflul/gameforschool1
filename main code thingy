@@ -1,12 +1,3 @@
-/*STILL IN DEVELOPMENT:
-THINGS TO DO:
-MAKE ROCKET (CHECK)
-CONTROLS (CHECK)
-MAKE ASTEROIDS (CHECK)
-MAKE ASTEROIDS RANDOM AND RESPAWN (CHECK)
-MAKE A WAY TO DIE IN THE GAME (x)
-*/
-
 //amount of stars (of background)
 Star[] stars = new Star[400];
 
@@ -32,6 +23,8 @@ int vuur12 = 320;
 int vuur22 = 310;
 int vuur32 = 340;
 int textlol = 330;
+int hitbox = 320;
+boolean gameover = false;
 
 
 // CHANGE VARIABLE TO CHANGE THE SPEED THE ROCKET TRAVELS IN
@@ -47,22 +40,21 @@ int asteroid5 = 2000;
 int asteroid6 = 2000;
 int asteroid7 = 2000;
 int asteroid8 = 2000;
-float asteroidy = 200.200;
-float asteroidy2= 250.250;
-float asteroidy3 = 432.432;
-float asteroidy4 = 321.321;
-float asteroidy5= 261.261;
-float asteroidy6 = 237.237;
-float asteroidy7 = 377.377;
-float asteroidy8= 756.756;
-float asteroidy9 = 523.523;
+int asteroidy = 200;
+int asteroidy1 = 250;
+int asteroidy2= 250;
+int asteroidy3 = 432;
+int asteroidy4 = 321;
+int asteroidy5= 261;
+int asteroidy6 = 237;
+int asteroidy7 = 377;
+int asteroidy8= 756;
 
 void setup() {
   size(1500, 1000);
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
     randomAsteroids();
-
   }
 }
 
@@ -75,238 +67,237 @@ void draw() {
     stars[i].show();
   }
   display();
-     Asteroid();
-  textSize(16);
-  text("SS JOE MAMA", 170, textlol);
+  Asteroid();
 }
 
 void display() {
-  if (mousePressed==true && mouseButton==RIGHT 
-    && base1 > 25 
-    && line1 > 25 
-    && point1 > 25
-    && point2 > 25 
-    && point3 > 25 
-    && window1 > 25
-    && back1 > 25 
-    && leg11 > 25 
-    && leg12 > 25 
-    && leg13 > 25 
-    && leg21 > 25
-    && leg22 > 25 
-    && leg23 > 25 
-    && textlol > 25
-    && vuur1 > 25
-    && vuur2 > 25
-    && vuur3 > 25
-    && vuur12 > 25
-    && vuur22 > 25
-    && vuur32 > 25) {
-    base1-=speed;
-    line1-=speed;
-    point1-=speed;
-    point2-=speed;
-    point3-=speed;
-    window1-=speed;
-    back1-=speed;
-    leg11-=speed;
-    leg12-=speed;
-    leg13-=speed;
-    leg21-=speed;
-    leg22-=speed;
-    leg23-=speed;
-    vuur1-=speed;
-    vuur2-=speed;
-    vuur3-=speed;
-    vuur12-=speed;
-    vuur22-=speed;
-    vuur32-=speed;
-    textlol-=speed;
-    //vuur raket
+
+  if (!gameover) {
+    textSize(16);
+    text("SS JOE MAMA", 170, textlol);
+    if (mousePressed==true && mouseButton==RIGHT 
+      && base1 > 25 
+      && line1 > 25 
+      && point1 > 25
+      && point2 > 25 
+      && point3 > 25 
+      && window1 > 25
+      && back1 > 25 
+      && leg11 > 25 
+      && leg12 > 25 
+      && leg13 > 25 
+      && leg21 > 25
+      && leg22 > 25 
+      && leg23 > 25 
+      && textlol > 25
+      && vuur1 > 25
+      && vuur2 > 25
+      && vuur3 > 25
+      && vuur12 > 25
+      && vuur22 > 25
+      && vuur32 > 25) {
+      base1-=speed;
+      line1-=speed;
+      point1-=speed;
+      point2-=speed;
+      point3-=speed;
+      window1-=speed;
+      back1-=speed;
+      leg11-=speed;
+      leg12-=speed;
+      leg13-=speed;
+      leg21-=speed;
+      leg22-=speed;
+      leg23-=speed;
+      vuur1-=speed;
+      vuur2-=speed;
+      vuur3-=speed;
+      vuur12-=speed;
+      vuur22-=speed;
+      vuur32-=speed;
+      textlol-=speed;
+      hitbox -=speed;
+      //vuur raket
+    }
+
+
+    if (mousePressed == true && mouseButton==LEFT && base1 < height
+      && line1 < height 
+      && point1 < height 
+      && point2 < height
+      && point3 < height 
+      && window1 < height 
+      && back1 < height 
+      && leg11 < height 
+      && leg12 < height
+      && leg13 < height 
+      && leg21 < height 
+      && leg22 < height 
+      && leg23 < height
+      && textlol < height
+      && vuur1 < height
+      && vuur2 < height
+      && vuur3 < height
+      && vuur12 < height
+      && vuur22 < height
+      && vuur32 < height) {
+      base1+=speed;
+      line1+=speed;
+      point1+=speed;
+      point2+=speed;
+      point3+=speed;
+      window1+=speed;
+      back1+=speed;
+      leg11+=speed;
+      leg12+=speed;
+      leg13+=speed;
+      leg21+=speed;
+      leg22+=speed;
+      leg23+=speed;
+      vuur1+=speed;
+      vuur2+=speed;
+      vuur3+=speed;
+      vuur12+=speed;
+      vuur22+=speed;
+      vuur32+=speed;
+      textlol+=speed;
+      hitbox+=speed;
+    }
+
+
+    asteroid -=5;
+    asteroid -=10;
+    asteroid1 -=7;
+    asteroid2 -=8;
+    asteroid3 -=5;
+    asteroid4 -=12;
+    asteroid5 -=15;
+    asteroid6 -=11;
+    asteroid7 -=20;
+    asteroid8 -=17;
+
+
+    noStroke();
+
+
+
+
+
+    //hitbox
+    fill(0, 0, 255);
+    ellipse(200, hitbox, 500, 100);
+
+    //base rocket
+    fill(220, 220, 220);
+    rect(100, base1, 200, 50);
+
+    //line rocket
+    fill(102);
+    rect(100, line1, 200, 30);
+
+    //point rocket
+    fill(255, 255, 255);
+    triangle(300, point1, 300, point2, 360, point3);
+
+    //window rocket
+    fill(0, 120, 255);
+    ellipse(325, window1, 20, 20);
+
+    //backsize rocket
+    fill(150);
+    rect(85, back1, 15, 50);
+
+    //legs rocket
+    fill(255, 0, 0);
+    triangle(40, leg11, 85, leg12, 115, leg13);
+    triangle(40, leg21, 85, leg22, 115, leg23);
+
+    if (mousePressed == true && mouseButton == LEFT) {
+      //fire
+      fill(100, 0, 0);
+      triangle(20, vuur1, 85, vuur2, 85, vuur3);
+      fill(random(210, 255), random(210, 255), 0);
+      triangle(30, vuur12, 85, vuur22, 85, vuur32);
+    }
+    if (mousePressed == true && mouseButton == RIGHT) {
+      //fire
+      fill(100, 0, 0);
+      triangle(20, vuur1, 85, vuur2, 85, vuur3);
+      fill(random(210, 255), random(210, 255), 0);
+      triangle(30, vuur12, 85, vuur22, 85, vuur32);
+    }
+
+
+
+    if (dist(hitbox,200,asteroid,asteroidy) <0){
+      gameover = true;
+    }
+
+
+
+    //asteroids
+    fill(60);
+    textSize(60);
+
+    ellipse(asteroid, asteroidy, 50, 50);
+    ellipse(asteroid2, asteroidy2, 80, 80);
+    ellipse(asteroid3, asteroidy3, 40, 40);
+    ellipse(asteroid4, asteroidy4, 50, 50);
+    ellipse(asteroid5, asteroidy5, 30, 30);
+    ellipse(asteroid6, asteroidy6, 90, 90);
+    ellipse(asteroid7, asteroidy7, 20, 20);
+    ellipse(asteroid8, asteroidy8, 60, 60);
+  } else {
+    background(0);
+    fill(255, 255, 255);
+    textSize(30);
+    textAlign(CENTER);
+    text("GAME OVER. Press space", width/2, height/2);
+    if (keyPressed&&key == ' ') {
+      gameover = false;
+    }
   }
-
-
-  if (mousePressed == true && mouseButton==LEFT && base1 < height
-    && line1 < height 
-    && point1 < height 
-    && point2 < height
-    && point3 < height 
-    && window1 < height 
-    && back1 < height 
-    && leg11 < height 
-    && leg12 < height
-    && leg13 < height 
-    && leg21 < height 
-    && leg22 < height 
-    && leg23 < height
-    && textlol < height
-    && vuur1 < height
-    && vuur2 < height
-    && vuur3 < height
-    && vuur12 < height
-    && vuur22 < height
-    && vuur32 < height) {
-    base1+=speed;
-    line1+=speed;
-    point1+=speed;
-    point2+=speed;
-    point3+=speed;
-    window1+=speed;
-    back1+=speed;
-    leg11+=speed;
-    leg12+=speed;
-    leg13+=speed;
-    leg21+=speed;
-    leg22+=speed;
-    leg23+=speed;
-    vuur1+=speed;
-    vuur2+=speed;
-    vuur3+=speed;
-    vuur12+=speed;
-    vuur22+=speed;
-    vuur32+=speed;
-    textlol+=speed;
-    //vuur raket
-  }
-
-
-  asteroid -=5;
-  asteroid -=10;
-  asteroid1 -=7;
-  asteroid2 -=8;
-  asteroid3 -=5;
-  asteroid4 -=12;
-  asteroid5 -=15;
-  asteroid6 -=11;
-  asteroid7 -=20;
-  asteroid8 -=17;
-
-
-  noStroke();
-
-
-  //base raket
-  fill(220, 220, 220);
-  rect(100, base1, 200, 50);
-
-  //midden streep raket
-  fill(102);
-  rect(100, line1, 200, 30);
-
-  //punt raket
-  fill(255, 255, 255);
-  triangle(300, point1, 300, point2, 360, point3);
-
-  //raampje raket
-  fill(0, 120, 255);
-  ellipse(325, window1, 20, 20);
-
-  //achterkant raket
-  fill(150);
-  rect(85, back1, 15, 50);
-
-  //poten raket
-  fill(255, 0, 0);
-  triangle(40, leg11, 85, leg12, 115, leg13);
-  triangle(40, leg21, 85, leg22, 115, leg23);
-
-  if (mousePressed == true && mouseButton == LEFT) {
-    //vuur
-    fill(100, 0, 0);
-    triangle(20, vuur1, 85, vuur2, 85, vuur3);
-    fill(random(210, 255), random(210, 255), 0);
-    triangle(30, vuur12, 85, vuur22, 85, vuur32);
-  }
-  if (mousePressed == true && mouseButton == RIGHT) {
-    //vuur
-    fill(100, 0, 0);
-    triangle(20, vuur1, 85, vuur2, 85, vuur3);
-    fill(random(210, 255), random(210, 255), 0);
-    triangle(30, vuur12, 85, vuur22, 85, vuur32);
-  }
-
-
-
-  //asteroids 
-  fill(60);
-  textSize(60);
-  ellipse(asteroid, asteroidy, 70, 70);
-  ellipse(asteroid1, asteroidy2, 50, 50);
-  ellipse(asteroid2, asteroidy3, 80, 80);
-  ellipse(asteroid3, asteroidy4, 40, 40);
-  ellipse(asteroid4, asteroidy5, 50, 50);
-  ellipse(asteroid5, asteroidy6, 30, 30);
-  ellipse(asteroid6, asteroidy7, 90, 90);
-  ellipse(asteroid7, asteroidy8, 20, 20);
-  ellipse(asteroid8, asteroidy9, 60, 60);
-  
-
-
-  // UNFINISHED BUT MORE
-if(dist(asteroid,asteroidy,560,point3)<50){text("JE BENT GERAAKT",500,400);
 }
-if(dist(asteroid1,asteroidy2,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid2,asteroidy3,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid3,asteroidy4,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid4,asteroidy5,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid5,asteroidy6,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid6,asteroidy7,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid7,asteroidy8,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-if(dist(asteroid8,asteroidy9,560,point3)<50){text("JE BENT GERAAKT",500,400);
-}
-}
-
-
 // for making the asteroids randomly spawn
 void randomAsteroids() {
-  asteroidy = random(0, 800);
-  asteroidy2 = random(0, 800);
-  asteroidy3 = random(0, 800);
-  asteroidy4 = random(0, 800);
-  asteroidy5 = random(0, 800);
-  asteroidy6 = random(0, 800);
-  asteroidy7 =  random(0, 800);
-  asteroidy8 = random(0, 800);
-  asteroidy9 = random(0, 800);
-  
-
+  asteroidy = int(random(0,800));
+  asteroidy2 = int(random(0, 800));
+  asteroidy3 = int(random(0, 800));
+  asteroidy4 = int(random(0, 800));
+  asteroidy5 = int(random(0, 800));
+  asteroidy6 =  int(random(0, 800));
+  asteroidy7 = int(random(0, 800));
+  asteroidy8 = int(random(0,800));
 }
 
-void Asteroid(){
+void Asteroid() {
   // for making the asteroids respawn
-if(asteroid < 0){
-  asteroid = 2000;
-  asteroidy = random(200,800);
-}
-if(asteroid1 < 0){
-  asteroid1 = 2000;
-  asteroidy2 = random(200,800);
-}
-if(asteroid2 < 0){
-  asteroid2 = 2000;
-  asteroidy3 = random(200,800);
-}
-if(asteroid3 < 0){
-  asteroid3 = 2000;
-  asteroidy4 = random(200,800);
-}
-if(asteroid4 < 0){
-  asteroid4 = 2000;
-  asteroidy5 = random(200,800);
-}
-if(asteroid5 < 0){
-  asteroid5 = 2000;
-  asteroidy6 = random(200,800);
-}
-if(asteroid6 < 0){
-  asteroid6 = 2000;
-  asteroidy7 = random(200,800);
+  if (asteroid < 0) {
+    asteroid = 2000;
+    asteroidy = int(random(200,800));
+  }
+  if (asteroid1 < 0) {
+    asteroid1 = 2000;
+    asteroidy1 =int(random(200,800));
+  }
+  if (asteroid2 < 0) {
+    asteroid2 = 2000;
+    asteroidy2 = int(random(200,800));
+  }
+  if (asteroid3 < 0) {
+    asteroid3 = 2000;
+    asteroidy3 = int(random(200,800));
+  }
+  if (asteroid4 < 0) {
+    asteroid4 = 2000;
+    asteroidy4 = int(random(200,800));
+  }
+  if (asteroid5 < 0) {
+    asteroid5 = 2000;
+    asteroidy5 = int(random(200,800));
+  }
+  if (asteroid6 < 0) {
+    asteroid6 = 2000;
+    asteroidy6 = int(random(200,800));
   }
 }
