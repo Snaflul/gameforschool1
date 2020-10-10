@@ -1,1 +1,1 @@
-THIS IS JUST A SMALL GAME MY AND MY FRIENDS MADE IN PROCESSING FOR SCHOOL, DON'T CRITIQUE IT AS WERE FAIRLY NEW TO THE LANGUAGE.
+deprecated (not working on it anymore, just keeping it here for lol momen)
