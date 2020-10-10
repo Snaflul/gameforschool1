@@ -24,7 +24,10 @@ int vuur22 = 310;
 int vuur32 = 340;
 int textlol = 330;
 int hitbox = 320;
+int distance = 80;
+PImage afbeelding;
 boolean gameover = false;
+boolean gamestart = true;
 
 
 // CHANGE VARIABLE TO CHANGE THE SPEED THE ROCKET TRAVELS IN
@@ -40,6 +43,9 @@ int asteroid5 = 2000;
 int asteroid6 = 2000;
 int asteroid7 = 2000;
 int asteroid8 = 2000;
+int asteroid9 = 2000;
+int asteroid10 = 2000;
+int asteroid11 = 2000;
 int asteroidy = 200;
 int asteroidy1 = 250;
 int asteroidy2= 250;
@@ -49,9 +55,13 @@ int asteroidy5= 261;
 int asteroidy6 = 237;
 int asteroidy7 = 377;
 int asteroidy8= 756;
+int asteroidy9 = 238;
+int asteroidy10 = 498;
+int asteroidy11 = 645;
 
 void setup() {
   size(1500, 1000);
+  afbeelding = loadImage("3eriza.png");
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
     randomAsteroids();
@@ -60,7 +70,7 @@ void setup() {
 
 
 void draw() {
-  background(0, 0, 40);
+  background(0, 0, 20);
 
   for (int i = 0; i < stars.length; i++) {
     stars[i].update();
@@ -72,267 +82,324 @@ void draw() {
 
 void display() {
 
-  if (!gameover) {
+  if (gamestart == true) {
     textSize(16);
-    text("SS JOE MAMA", 170, textlol);
-    if (mousePressed==true && mouseButton==RIGHT 
-      && base1 > 25 
-      && line1 > 25 
-      && point1 > 25
-      && point2 > 25 
-      && point3 > 25 
-      && window1 > 25
-      && back1 > 25 
-      && leg11 > 25 
-      && leg12 > 25 
-      && leg13 > 25 
-      && leg21 > 25
-      && leg22 > 25 
-      && leg23 > 25 
-      && textlol > 25
-      && vuur1 > 25
-      && vuur2 > 25
-      && vuur3 > 25
-      && vuur12 > 25
-      && vuur22 > 25
-      && vuur32 > 25) {
-      base1-=speed;
-      line1-=speed;
-      point1-=speed;
-      point2-=speed;
-      point3-=speed;
-      window1-=speed;
-      back1-=speed;
-      leg11-=speed;
-      leg12-=speed;
-      leg13-=speed;
-      leg21-=speed;
-      leg22-=speed;
-      leg23-=speed;
-      vuur1-=speed;
-      vuur2-=speed;
-      vuur3-=speed;
-      vuur12-=speed;
-      vuur22-=speed;
-      vuur32-=speed;
-      textlol-=speed;
-      hitbox -=speed;
-      //vuur raket
-    }
+    text("PRESS 'SPACE' TO START.", 550, 580);
+    image(afbeelding, 500, 200, 300, 300);
+    textSize(50);
+    text("SS JOE MAMA", 489, 500, 500, 300);
+  }
 
+  if (keyPressed == true && key == ' ') {
+    gamestart = false;
+  } 
 
-    if (mousePressed == true && mouseButton==LEFT && base1 < height
-      && line1 < height 
-      && point1 < height 
-      && point2 < height
-      && point3 < height 
-      && window1 < height 
-      && back1 < height 
-      && leg11 < height 
-      && leg12 < height
-      && leg13 < height 
-      && leg21 < height 
-      && leg22 < height 
-      && leg23 < height
-      && textlol < height
-      && vuur1 < height
-      && vuur2 < height
-      && vuur3 < height
-      && vuur12 < height
-      && vuur22 < height
-      && vuur32 < height) {
-      base1+=speed;
-      line1+=speed;
-      point1+=speed;
-      point2+=speed;
-      point3+=speed;
-      window1+=speed;
-      back1+=speed;
-      leg11+=speed;
-      leg12+=speed;
-      leg13+=speed;
-      leg21+=speed;
-      leg22+=speed;
-      leg23+=speed;
-      vuur1+=speed;
-      vuur2+=speed;
-      vuur3+=speed;
-      vuur12+=speed;
-      vuur22+=speed;
-      vuur32+=speed;
-      textlol+=speed;
-      hitbox+=speed;
-    }
-
-
-    asteroid -=5;
-    asteroid -=10;
-    asteroid1 -=7;
-    asteroid2 -=8;
-    asteroid3 -=5;
-    asteroid4 -=12;
-    asteroid5 -=15;
-    asteroid6 -=11;
-    asteroid7 -=20;
-    asteroid8 -=17;
-
-
-    noStroke();
+  if (!gamestart) {
+    if (!gameover) {
+      if (keyPressed && key == 'w' 
+        && base1 > 25 
+        && line1 > 25 
+        && point1 > 25
+        && point2 > 25 
+        && point3 > 25 
+        && window1 > 25
+        && back1 > 25 
+        && leg11 > 25 
+        && leg12 > 25 
+        && leg13 > 25 
+        && leg21 > 25
+        && leg22 > 25 
+        && leg23 > 25 
+        && textlol > 25
+        && vuur1 > 25
+        && vuur2 > 25
+        && vuur3 > 25
+        && vuur12 > 25
+        && vuur22 > 25
+        && vuur32 > 25) {
+        base1-=speed;    
+        line1-=speed;  
+        point1-=speed;  
+        point2-=speed;  
+        point3-=speed;  
+        window1-=speed;  
+        back1-=speed;  
+        leg11-=speed;  
+        leg12-=speed;  
+        leg13-=speed;  
+        leg21-=speed;  
+        leg22-=speed;    
+        leg23-=speed;    
+        vuur1-=speed;
+        vuur2-=speed;
+        vuur3-=speed;
+        vuur12-=speed;
+        vuur22-=speed;
+        vuur32-=speed;
+        textlol-=speed;
+        hitbox -=speed;
+      }
 
 
 
+      if (keyPressed == true && key == 's' && base1 < height
+        && line1 < height 
+        && point1 < height 
+        && point2 < height
+        && point3 < height 
+        && window1 < height 
+        && back1 < height 
+        && leg11 < height 
+        && leg12 < height
+        && leg13 < height 
+        && leg21 < height 
+        && leg22 < height 
+        && leg23 < height
+        && textlol < height
+        && vuur1 < height
+        && vuur2 < height
+        && vuur3 < height
+        && vuur12 < height
+        && vuur22 < height
+        && vuur32 < height) {
+        base1+=speed;
+        line1+=speed;
+        point1+=speed;
+        point2+=speed;
+        point3+=speed;
+        window1+=speed;
+        back1+=speed;
+        leg11+=speed;
+        leg12+=speed;
+        leg13+=speed;
+        leg21+=speed;
+        leg22+=speed;
+        leg23+=speed;
+        vuur1+=speed;
+        vuur2+=speed;
+        vuur3+=speed;
+        vuur12+=speed;
+        vuur22+=speed;
+        vuur32+=speed;
+        textlol+=speed;
+        hitbox+=speed;
+      }
 
 
-    //hitbox
-    fill(0, 0, 40);
-    ellipse(200, hitbox, 500, 100);
+      asteroid -=5;
+      asteroid -=10;
+      asteroid1 -=7;
+      asteroid2 -=8;
+      asteroid3 -=5;
+      asteroid4 -=12;
+      asteroid5 -=15;
+      asteroid6 -=11;
+      asteroid7 -=20;
+      asteroid8 -=17;
+      asteroid9 -=12;
+      asteroid10 -= 9;
+      asteroid11 -= 21;
 
-    //base rocket
-    fill(220, 220, 220);
-    rect(100, base1, 200, 50);
 
-    //line rocket
-    fill(102);
-    rect(100, line1, 200, 30);
+      noStroke();
 
-    //point rocket
-    fill(255, 255, 255);
-    triangle(300, point1, 300, point2, 360, point3);
+      //hitbox
+      fill(0, 0, 20);
+      ellipse(200, hitbox, 300, 100);
 
-    //window rocket
-    fill(0, 120, 255);
-    ellipse(325, window1, 20, 20);
+      //base rocket
+      fill(220, 220, 220);
+      rect(100, base1, 200, 50);
 
-    //backsize rocket
-    fill(150);
-    rect(85, back1, 15, 50);
+      //line rocket
+      fill(102);
+      rect(100, line1, 200, 30);
 
-    //legs rocket
-    fill(255, 0, 0);
-    triangle(40, leg11, 85, leg12, 115, leg13);
-    triangle(40, leg21, 85, leg22, 115, leg23);
+      //point rocket
+      fill(255, 255, 255);
+      triangle(300, point1, 300, point2, 360, point3);
 
-    if (mousePressed == true && mouseButton == LEFT) {
+      //window rocket
+      fill(0, 120, 255);
+      ellipse(325, window1, 20, 20);
+
+      //backsize rocket
+      fill(150);
+      rect(85, back1, 15, 50);
+
+      //legs rocket
+      fill(255, 0, 0);
+      triangle(40, leg11, 85, leg12, 115, leg13);
+      triangle(40, leg21, 85, leg22, 115, leg23);
+
       //fire
-      fill(100, 0, 0);
-      triangle(20, vuur1, 85, vuur2, 85, vuur3);
-      fill(random(210, 255), random(210, 255), 0);
-      triangle(30, vuur12, 85, vuur22, 85, vuur32);
-    }
-    if (mousePressed == true && mouseButton == RIGHT) {
-      //fire
-      fill(100, 0, 0);
-      triangle(20, vuur1, 85, vuur2, 85, vuur3);
-      fill(random(210, 255), random(210, 255), 0);
-      triangle(30, vuur12, 85, vuur22, 85, vuur32);
-    }
+      textSize(16);
+      fill(255, 255, 255);
+      text("SS JOE MAMA", 170, textlol);
+
+      if (keyPressed && key == 'w') {
+        //fire
+        fill(100, 0, 0);
+        triangle(20, vuur1, 85, vuur2, 85, vuur3);
+        fill(random(210, 255), random(210, 255), 0);
+        triangle(30, vuur12, 85, vuur22, 85, vuur32);
+      }
+      if (keyPressed && key == 's') {
+        //fire
+        fill(100, 0, 0);
+        triangle(20, vuur1, 85, vuur2, 85, vuur3);
+        fill(random(210, 255), random(210, 255), 0);
+        triangle(30, vuur12, 85, vuur22, 85, vuur32);
+      }
 
 
 
-    if (dist(200,hitbox,asteroid,asteroidy) <100){
-      gameover = true;
-    }
-    
-    if (dist(200,hitbox,asteroid2,asteroidy2) <100){
-      gameover = true;
-    }
-    
-    if (dist(200,hitbox,asteroid3,asteroidy3) <100){
-      gameover = true;
-    } 
+      if (dist(200, hitbox, asteroid, asteroidy) <distance) {
+        gameover = true;
+      }
 
-    if (dist(200,hitbox,asteroid4,asteroidy4) <100){
-      gameover = true;
-    }
-    
-    if (dist(200,hitbox,asteroid5,asteroidy5) <100){
-      gameover = true;
-    }
-    
-    if (dist(200,hitbox,asteroid6,asteroidy6) <100){
-      gameover = true;
-    }
-    
-    if (dist(200,hitbox,asteroid7,asteroidy7) <100){
-      gameover = true;
-    }
-    
-    if (dist(200,hitbox,asteroid8,asteroidy8) <100){
-      gameover = true;
-    }
+      if (dist(200, hitbox, asteroid2, asteroidy2) <distance) {
+        gameover = true;
+      }
 
-    //asteroids
-    fill(60);
-    textSize(60);
+      if (dist(200, hitbox, asteroid3, asteroidy3) <distance) {
+        gameover = true;
+      } 
 
-    ellipse(asteroid, asteroidy, 50, 50);
-    ellipse(asteroid2, asteroidy2, 80, 80);
-    ellipse(asteroid3, asteroidy3, 40, 40);
-    ellipse(asteroid4, asteroidy4, 50, 50);
-    ellipse(asteroid5, asteroidy5, 30, 30);
-    ellipse(asteroid6, asteroidy6, 90, 90);
-    ellipse(asteroid7, asteroidy7, 20, 20);
-    ellipse(asteroid8, asteroidy8, 60, 60);
-  } else {
-    background(0);
-    fill(255, 255, 255);
-    textSize(30);
-    textAlign(CENTER);
-    text("GAME OVER. Press space", width/2, height/2);
-    if (keyPressed&&key == ' ') {
-      gameover = false;
-      asteroid = 2000;
-      asteroid1 = 2000;
-      asteroid2 = 2000;
-      asteroid3 = 2000;
-      asteroid4 = 2000;
-      asteroid5 = 2000;
-      asteroid6 = 2000;
-      asteroid7 = 2000;
-      asteroid8 = 2000;
+      if (dist(200, hitbox, asteroid4, asteroidy4) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid5, asteroidy5) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid6, asteroidy6) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid7, asteroidy7) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid8, asteroidy8) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid9, asteroidy9) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid10, asteroidy10) <distance) {
+        gameover = true;
+      }
+
+      if (dist(200, hitbox, asteroid11, asteroidy11) <distance) {
+        gameover = true;
+      }
+
+      //asteroids
+      fill(60);
+      textSize(60);
+
+      ellipse(asteroid, asteroidy, 50, 50);
+      ellipse(asteroid2, asteroidy2, 80, 80);
+      ellipse(asteroid3, asteroidy3, 40, 40);
+      ellipse(asteroid4, asteroidy4, 50, 50);
+      ellipse(asteroid5, asteroidy5, 30, 30);
+      ellipse(asteroid6, asteroidy6, 90, 90);
+      ellipse(asteroid7, asteroidy7, 20, 20);
+      ellipse(asteroid8, asteroidy8, 60, 60);
+      ellipse(asteroid9, asteroidy9, 90, 90);
+      ellipse(asteroid10, asteroidy10, 50, 50);
+      ellipse(asteroid11, asteroidy11, 70, 70);
+    } else {
+      background(0);
+      fill(255, 255, 255);
+      textSize(30);
+      textAlign(CENTER);
+      text("GAME OVER. Press space", width/2, height/2);
+      if (keyPressed&&key == ' ') {
+        gameover = false;
+        asteroid = 2000;
+        asteroid1 = 2000;
+        asteroid2 = 2000;
+        asteroid3 = 2000;
+        asteroid4 = 2000;
+        asteroid5 = 2000;
+        asteroid6 = 2000;
+        asteroid7 = 2000;
+        asteroid8 = 2000;
+        asteroid9 = 2000;
+        asteroid10 = 2000;
+        asteroid11 = 2000;
+      }
     }
   }
 }
 // for making the asteroids randomly spawn
 void randomAsteroids() {
-  asteroidy = int(random(0,800));
+  asteroidy = int(random(0, 800));
   asteroidy2 = int(random(0, 800));
   asteroidy3 = int(random(0, 800));
   asteroidy4 = int(random(0, 800));
   asteroidy5 = int(random(0, 800));
-  asteroidy6 =  int(random(0, 800));
+  asteroidy6 = int(random(0, 800));
   asteroidy7 = int(random(0, 800));
-  asteroidy8 = int(random(0,800));
+  asteroidy8 = int(random(0, 800));
+  asteroidy9 = int(random(0, 800));
+  asteroidy10 = int(random(0, 800));
+  asteroidy11 = int(random(0, 800));
 }
 
 void Asteroid() {
   // for making the asteroids respawn
   if (asteroid < 0) {
     asteroid = 2000;
-    asteroidy = int(random(200,800));
+    asteroidy = int(random(20, 1000));
   }
   if (asteroid1 < 0) {
     asteroid1 = 2000;
-    asteroidy1 =int(random(200,800));
+    asteroidy1 =int(random(20, 1000));
   }
   if (asteroid2 < 0) {
     asteroid2 = 2000;
-    asteroidy2 = int(random(200,800));
+    asteroidy2 = int(random(20, 1000));
   }
   if (asteroid3 < 0) {
     asteroid3 = 2000;
-    asteroidy3 = int(random(200,800));
+    asteroidy3 = int(random(20, 1000));
   }
   if (asteroid4 < 0) {
     asteroid4 = 2000;
-    asteroidy4 = int(random(200,800));
+    asteroidy4 = int(random(20, 1000));
   }
   if (asteroid5 < 0) {
     asteroid5 = 2000;
-    asteroidy5 = int(random(200,800));
+    asteroidy5 = int(random(20, 1000));
   }
   if (asteroid6 < 0) {
     asteroid6 = 2000;
-    asteroidy6 = int(random(200,800));
+    asteroidy6 = int(random(20, 1000));
+  }
+  if (asteroid7 < 0) {
+    asteroid7 = 2000;
+    asteroidy7 = int(random(20, 1000));
+  }
+  if (asteroid8 < 0) {
+    asteroid8 = 2000;
+    asteroidy8 = int(random(20, 1000));
+  }
+  if (asteroid9 < 0) {
+    asteroid9 = 2000;
+    asteroidy9 = int(random(20, 1000));
+  }
+  if (asteroid10 < 0) {
+    asteroid10 = 2000;
+    asteroidy10 = int(random(20, 1000));
+  }
+  if (asteroid11 < 0) {
+    asteroid11 = 2000;
+    asteroidy11 = int(random(20, 1000));
   }
 }
